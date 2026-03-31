@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ApexStacks Menu</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body, #root { width: 100%; height: 100%; background: transparent; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Bridge from Python via QWebChannel
+      window.__apex_action = function(action, data) {
+        // Will be overridden once QWebChannel is ready
+        console.log('[ApexStacks] action (no bridge yet):', action, data);
+      };
+
+      function initBridge() {
+        if (typeof QWebChannel === 'undefined' || typeof qt === 'undefined') return;
+        new QWebChannel(qt.webChannelTransport, function(channel) {
+          var bridge = channel.objects.bridge;
+
+          // Python → React: show menu
+          bridge.showMenu.connect(function(jsonStr) {
+            try {
+              var data = JSON.parse(jsonStr);
+              window.dispatchEvent(new CustomEvent('apex:show', { detail: data }));
+            } catch(e) { console.error('[ApexStacks] showMenu parse error', e); }
+          });
+
+          // Python → React: hide menu
+          bridge.hideMenu.connect(function() {
+            window.dispatchEvent(new CustomEvent('apex:hide'));
+          });
+
+          // React → Python: action callback
+          window.__apex_action = function(action, data) {
+            if (action === 'click')  bridge.slotClicked(Number(data));
+            if (action === 'add')    bridge.slotAdd(Number(data));
+            if (action === 'remove') bridge.slotRemove(Number(data));
+            if (action === 'close')  bridge.closeMenu();
+          };
+
+          console.log('[ApexStacks] QWebChannel bridge ready');
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // QWebChannel.js is injected by PyQt6 before page load
+        initBridge();
+      });
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

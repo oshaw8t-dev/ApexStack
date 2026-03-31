@@ -1,0 +1,27 @@
+# Build output
+dist/
+build/
+*.spec
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Runtime files (user data — not to be committed)
+stacks.json
+ApexStacks_debug.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Dependencies
+node_modules/
+
+# Claude Code memory
+.claude/
