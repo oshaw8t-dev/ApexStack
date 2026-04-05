@@ -79,6 +79,14 @@ Roadmap dinamica con sezioni comprimibili e checklist aggiornabile.
 
 </details>
 
+<details open>
+<summary><strong>Sessione 9 (2026-04-05)</strong></summary>
+
+- [x] Supporto drag and drop di piu app alla volta dentro uno stack (Ctrl+click o selezione rettangolare + drag su icona stack)
+- [x] Fix: tasto `-` in edit mode ora riporta il file sul desktop prima di rimuoverlo dallo stack (come drag-to-desktop)
+
+</details>
+
 <details>
 <summary><strong>Sessione 8 (2026-04-04)</strong></summary>
 
@@ -151,7 +159,7 @@ Roadmap dinamica con sezioni comprimibili e checklist aggiornabile.
 - [ ] Permettere di aggiungere alla barra applicazioni stack gia creati sul desktop
 - [ ] Permettere di riportare sul desktop stack gia presenti o gestiti dalla barra applicazioni
 - [ ] Definire un flusso coerente di sincronizzazione o conversione stack tra desktop e taskbar
-- [ ] Supporto drag and drop di piu app alla volta dentro uno stack
+- [x] Supporto drag and drop di piu app alla volta dentro uno stack
 - [ ] Supporto aggiunta manuale di piu app alla volta dentro uno stack
 
 </details>
