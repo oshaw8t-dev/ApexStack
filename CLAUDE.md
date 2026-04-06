@@ -40,23 +40,31 @@ build_installer.bat  # genera installer Inno Setup
 - Gli hook Windows (drag, IPC con Explorer) usano ctypes/win32api
 - Ogni feature nuova va testata su multi-monitor
 
-## Stato Attuale (Sessione 8 completata)
+## Stato Attuale (Sessione 9 completata)
 Il progetto è vicino alla **prima release pubblica beta**.
 Feature core complete: fan-out, edit mode, drag-to-create, archiviazione automatica,
 drag-to-desktop, multi-monitor, config isolation in %APPDATA%, menu contestuale,
-label scrolling, toast notifications, autostart Windows.
+label scrolling, toast notifications, autostart Windows, multi-drag (Ctrl+click).
+
+### Icona exe
+- In lavorazione da **Gina** (web designer esterna)
+- Formato richiesto: `.ico` per Windows
+- Quando consegnata: aggiungere `--icon=<path>.ico` in `build.bat` e `icon=<path>.ico` nell'EXE() di `ApexStacks.spec`
 
 ### Blockers pre-release
-- [ ] Selezione icona exe (6 varianti SVG generate, non ancora scelta)
-- [ ] Build exe finale stabile
-- [ ] Tag release su GitHub
+- [ ] Icona exe (in attesa da Gina — .ico)
+- [ ] Rebuild installer con fix multi-monitor, storage isolation, desktop path
+- [ ] Tag release v0.1.0-beta su GitHub
+
+### Consigliati prima della beta
+- [x] Backup automatico stacks.json (ultime 3 versioni) — `save_cfg()` ruota .bak1/.bak2/.bak3
+- [ ] Log viewer nel tray
 
 ## Da Fare (priorità alta)
 Vedi `ROADMAP.md` per la lista completa. Feature principali pendenti:
 - Scroll rotella su stack aperto per ciclare sub-app
 - Tasto destro sull'icona padre per opzioni stack
 - Limite visivo sub-app con freccia navigazione stile Windows 11
-- Rebuild installer con fix multi-monitor e storage isolation
 
 ## Note Importanti per Claude Code
 - **Non usare `subprocess`** per lanciare Python — usare sempre il path assoluto `C:\Users\marco\miniconda3\python.exe`
@@ -64,3 +72,12 @@ Vedi `ROADMAP.md` per la lista completa. Feature principali pendenti:
 - **Il file è grande (~90KB)** — leggere sezioni specifiche con grep/offset invece di tutto il file
 - Prima di modificare `ApexStacks.py`, fare sempre un backup o un commit git
 - Il repo git è inizializzato nella cartella del progetto
+
+## ⚠️ Lezioni dalla Sessione 9
+- **Istanze multiple** — prima di avviare per test, killare sempre processi esistenti:
+  ```bat
+  taskkill /F /IM python.exe /T 2>nul
+  taskkill /F /IM ApexStacks.exe /T 2>nul
+  ```
+- **Context window** — quando appare "X% until auto-compact" sotto il 15%, fare subito `/checkpoint` e commit prima di perdere il contesto
+- **Refactor grandi** — procedere un gruppo di variabili alla volta con commit checkpoint dopo ogni gruppo testato
