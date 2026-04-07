@@ -20,7 +20,7 @@ Hold the icon → it fans out into its sub-apps. Click one to launch it.
 
 No more cluttered desktop. No taskbar bloat. Just your desktop, organized.
 
-<!-- Add GIF here once recorded: ![ApexStacks demo](assets/demo.gif) -->
+![ApexStacks demo](assets/demo.gif)
 
 ## Quick start
 
