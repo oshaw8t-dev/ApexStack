@@ -1,39 +1,63 @@
-# ApexStacks
+<div align="center">
+  <img src="assets/icon_256.png" width="96" alt="ApexStacks icon" />
+  <h1>ApexStacks</h1>
+  <p><strong>Icon stacks for your Windows desktop — inspired by Apex Launcher on Android</strong></p>
+  <p>
+    <a href="https://github.com/oshaw8t-dev/ApexStack/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/oshaw8t-dev/ApexStack?label=download&style=flat-square&color=4f8ef7"></a>
+    <img alt="Platform" src="https://img.shields.io/badge/platform-Windows%2010%2F11-blue?style=flat-square">
+    <img alt="License" src="https://img.shields.io/github/license/oshaw8t-dev/ApexStack?style=flat-square">
+  </p>
+</div>
 
-**ApexStacks** is a Windows 11 desktop launcher that lets you stack multiple apps behind a single desktop icon, inspired by the Apex Launcher concept on Android.
+---
 
-![ApexStacks demo](assets/demo.gif)
+> **Beta** — works well for daily use, but edge cases exist. [Report bugs here](https://github.com/oshaw8t-dev/ApexStack/issues).
 
-## What it does
+## What is ApexStacks?
 
-Instead of cluttering your desktop with dozens of icons, you group related apps under one icon. Hold the icon to fan out its sub-apps, click to launch.
+ApexStacks lets you group multiple apps, files, and folders behind a single desktop icon.
+Hold the icon → it fans out into its sub-apps. Click one to launch it.
 
-- **Long press** on any desktop icon → fan-out animation reveals sub-apps
-- **Alt+Click** on any desktop icon → enter edit mode to add/remove/reorder sub-apps
-- **Drag one icon onto another** → auto-creates a stack (works with .lnk shortcuts)
-- Badge on the icon shows how many apps are stacked
+No more cluttered desktop. No taskbar bloat. Just your desktop, organized.
+
+<!-- Add GIF here once recorded: ![ApexStacks demo](assets/demo.gif) -->
+
+## Quick start
+
+1. Download `ApexStacks_Setup_v0.1.0.exe` from the [latest release](https://github.com/oshaw8t-dev/ApexStack/releases/latest)
+2. Run the installer (Windows 10 / 11, no extra dependencies)
+3. ApexStacks starts in the system tray
+
+## How to use
+
+| Action | Result |
+|--------|--------|
+| **Long press** on a stack icon (~700ms) | Fan-out animation — sub-apps appear |
+| **Click** a sub-app | Launch it |
+| **Alt+Click** on any desktop icon | Enter edit mode |
+| **Drag** one desktop icon **onto another** | Create a stack automatically |
+| **Ctrl+Click** multiple icons + drag onto a stack | Add multiple apps at once |
+| **Drag a sub-app off the stack** | Remove it and restore to desktop |
 
 ## Features
 
-- Animated fan-out (N/S/E/W directions, auto-inverts near screen edges)
-- Edit mode with fade in/out animation
-- Drag & drop reordering of sub-apps inside a stack
-- Right-click context menu on sub-apps: rename, change icon, replace, open path
-- Long scrolling label for sub-apps with long names
-- Support for apps, files, folders, and URLs
-- Badge counter on parent icon (adapts to icon size and DPI)
-- Tray icon with settings, restart, and stack management
-- Remote mode: Ctrl+Click opens fan-out (for TeamViewer/RDP sessions)
-- Windows startup toggle
-- **Desktop archive**: adding a sub-app from the desktop automatically moves the file to a hidden `storage/` folder — desktop stays clean, stack keeps working
-- **Drag sub-app back to desktop**: drag a sub-app outside the stack to remove it and restore the file to the desktop
+- Animated fan-out (N / S / E / W, auto-inverts near screen edges)
+- **Drag-to-create** — drop any icon onto another to instantly form a stack
+- **Multi-drag** — Ctrl+Click or rectangle-select multiple icons, drag them all in at once
+- **Edit mode** — add, remove, reorder, rename, change icon of sub-apps
+- **Desktop archive** — files added from the desktop move to `storage/` automatically; desktop stays clean
+- **Drag back to desktop** — drag a sub-app out to restore the file and remove it from the stack
+- Right-click context menu on sub-apps (rename, change icon, replace, open path)
 - Configurable archive folder and archive mode (auto / ask / manual)
-- Fully painted UI (no native windows, no taskbar presence)
+- Multi-monitor support (including non-primary monitors, mixed DPI)
+- Windows startup toggle (via system tray)
+- Automatic backup of `stacks.json` (last 3 versions)
+- Debug log viewer accessible from the tray
+- Fully painted UI — no native windows, no taskbar presence
 
-## Requirements
+## Known limitations
 
-- Windows 10 / 11
-- No installation required — just run `ApexStacks.exe`
+- Drag-to-create does not work with raw `.exe` icons on the desktop (Windows OLE Shell intercepts the drag). Use `.lnk` shortcuts instead, or add apps manually via Alt+Click → edit mode.
 
 ## Running from source
 
@@ -42,9 +66,9 @@ pip install PyQt6
 python ApexStacks.py
 ```
 
-Or use `run.bat` for a console window.
+Or use `run.bat` for a development console.
 
-## Building
+## Building the exe
 
 ```bash
 pip install pyinstaller
@@ -55,11 +79,16 @@ Output: `dist/ApexStacks.exe`
 
 ## Configuration
 
-Settings are saved in `stacks.json` next to the executable. You can back it up or move it between machines.
+Settings and stack data are stored in `%APPDATA%\ApexStacks\`. You can back up or migrate this folder between machines.
+
+## Contributing
+
+Bug reports and feature requests are welcome on [Issues](https://github.com/oshaw8t-dev/ApexStack/issues).
+If you want to contribute code, open an issue first to discuss the change.
 
 ## License
 
-MIT License — see [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE)
 
 ## Author
 
