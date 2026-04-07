@@ -53,11 +53,6 @@ pyinstaller ApexStacks.spec --clean
 
 Output: `dist/ApexStacks.exe`
 
-## Known limitations
-
-- Drag-to-create does not work with direct `.exe` icons (Windows OLE Shell intercepts the drag before our hook). Use `.lnk` shortcuts instead, or Alt+Click to add apps manually.
-- Multi-monitor support not yet implemented.
-
 ## Configuration
 
 Settings are saved in `stacks.json` next to the executable. You can back it up or move it between machines.
