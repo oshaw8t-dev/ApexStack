@@ -1,6 +1,7 @@
 # Build output
 dist/
 build/
+installer/
 *.spec
 
 # Python cache
