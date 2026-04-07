@@ -63,4 +63,4 @@ MIT License — see [LICENSE](LICENSE)
 
 ## Author
 
-Marco — [M2 Studios](https://m2studios.it)
+Osha <3
