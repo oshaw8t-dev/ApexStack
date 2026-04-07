@@ -26,3 +26,9 @@ node_modules/
 
 # Claude Code memory
 .claude/
+ApexStacks.py
+ApexStacks.spec
+ApexStacks.iss
+build.bat
+build_installer.bat
+run.bat
