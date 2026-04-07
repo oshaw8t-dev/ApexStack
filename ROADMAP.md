@@ -80,6 +80,17 @@ Roadmap dinamica con sezioni comprimibili e checklist aggiornabile.
 </details>
 
 <details open>
+<summary><strong>Sessione 10 (2026-04-07)</strong></summary>
+
+- [x] Icona applicazione — design custom con sfondo trasparente, generazione multi-risoluzione (16/32/48/256/512px + .ico)
+- [x] Build exe con icona — `ApexStacks.spec` aggiornato con `icon=` e `datas=[assets]`; aggiunto `BUNDLE_DIR` per caricare assets correttamente sia in sviluppo che da exe bundled
+- [x] Fix: stack scompare su monitor non primario — `_find_all_desktop_lvs()` enumera tutti i SysListView32 (uno per monitor su Win11)
+- [x] Fix: sub-app nascoste dalla taskbar — `_local_screen_rect` usa `availableGeometry()` invece di `geometry()`
+- [x] Fix: mirroring prematuro per slot E/W vicini al bordo superiore/inferiore — check assi-only (`dx!=0` per H, `dy!=0` per V)
+
+</details>
+
+<details>
 <summary><strong>Sessione 9 (2026-04-05)</strong></summary>
 
 - [x] Supporto drag and drop di piu app alla volta dentro uno stack (Ctrl+click o selezione rettangolare + drag su icona stack)
@@ -189,8 +200,8 @@ Roadmap dinamica con sezioni comprimibili e checklist aggiornabile.
 <summary><strong>Tecnici</strong></summary>
 
 - [ ] Log viewer nel tray
-- [ ] Backup automatico `stacks.json` (ultime 3 versioni)
-- [ ] Rebuild installer con fix multi-monitor, storage isolation, desktop path detection
+- [x] Backup automatico `stacks.json` (ultime 3 versioni)
+- [ ] Rebuild installer Inno Setup (aggiornare `.iss` con nuovi path APPDATA, icona, fix multi-monitor)
 
 </details>
 
