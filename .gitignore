@@ -27,8 +27,12 @@ node_modules/
 # Claude Code memory
 .claude/
 ApexStacks.py
-ApexStacks.spec
+Synapps.py
 ApexStacks.iss
+Synapps.iss
 build.bat
 build_installer.bat
 run.bat
+
+*storybook.log
+storybook-static
