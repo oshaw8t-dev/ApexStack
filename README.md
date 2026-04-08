@@ -55,10 +55,6 @@ No more cluttered desktop. No taskbar bloat. Just your desktop, organized.
 - Debug log viewer accessible from the tray
 - Fully painted UI — no native windows, no taskbar presence
 
-## Known limitations
-
-- Drag-to-create does not work with raw `.exe` icons on the desktop (Windows OLE Shell intercepts the drag). Use `.lnk` shortcuts instead, or add apps manually via Alt+Click → edit mode.
-
 ## Running from source
 
 ```bash
