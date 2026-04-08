@@ -1,6 +1,6 @@
 <div align="center">
   <img src="assets/icon_256.png" width="96" alt="ApexStacks icon" />
-  <h1>ApexStacks</h1>
+  <h1>ApexStack</h1>
   <p><strong>Icon stacks for your Windows desktop — inspired by Apex Launcher on Android</strong></p>
   <p>
     <a href="https://github.com/oshaw8t-dev/ApexStack/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/oshaw8t-dev/ApexStack?label=download&style=flat-square&color=4f8ef7"></a>
